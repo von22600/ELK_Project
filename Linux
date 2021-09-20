@@ -1,1 +1,46 @@
 
+grep -f TimeRelated.txt 0310* 0312* | awk -F " " '{print $1, $2, $5, $6}' > Dealers_working_during_losses_V2
+grep -w '05:00:00 AM\|08:00:00 AM\|02:00:00 PM' 0315_Dealer_schedule | awk -F " " '{print $1, $2, $5, $6}' >> Dealers_working_during_losses_V2
+cat Dealers_working_during_losses_V2
+
+--------------------
+
+#!/bin/bash
+#Prompt user inputs:
+read -p 'Enter Time:[00:00:00 AM|PM]: ' -r V1
+read -p 'Enter Date:[0310|0312|0315]: ' -r  V2
+read -p 'Enter Game:[Roulette, Blackjack]: ' -r V3
+#Display user's inputs
+echo $V1 $V2 $V3
+
+####Testing arrays####
+#arg=("$@")
+#echo ${arg[1]} ${arg[2]} ${arg[3]}
+#extra in case further findings
+#grep "$V1" *Dealer_schedule | grep $V2 | grep $V3 | awk -F '{print  $*}'
+#####Done Testing arrays####
+
+-------
+
+#! /bin/bash
+#read -p 'Please enter either 0310 or 0312 or 0315 here: '  vdate
+read -p 'please enter Date Occured: ' -r arg1  
+read -p 'please enter Time: ' -r  arg2
+#args={$"@")
+####grep ${param1}|grep ${param2} Dealers_working_during_losses_V2 
+grep "$arg2" *Dealer_schedule | grep $arg1 | awk -F " " '{print $1, $2, $5, $6$
+
+-----------------
+
+#!/bin/bash
+#Prompt user inputs:
+read -p 'Enter Time:[00:00:00 AM|PM]: ' -r V1
+read -p 'Enter Date:[0310|0312|0315]: ' -r  V2
+read -p 'Enter Game:[Roulette, Blackjack]: ' -r V3
+#Display user's inputs
+echo $V1 $V2 $V3
+
+####Testing arrays####
+#arg=("$@")
+#echo ${arg[1]} ${arg[2]} ${arg[3]}
+#extra in case further
